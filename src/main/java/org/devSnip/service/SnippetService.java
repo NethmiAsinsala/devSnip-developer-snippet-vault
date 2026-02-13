@@ -1,7 +1,7 @@
 package org.devSnip.service;
 
 import org.devSnip.dto.SnippetDto;
-import org.devSnip.entity.Snippet;
+import org.devSnip.model.Snippet;
 
 import java.util.List;
 

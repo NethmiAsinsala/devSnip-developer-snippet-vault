@@ -1,6 +1,6 @@
 package org.devSnip.repository;
 
-import org.devSnip.entity.Tag;
+import org.devSnip.model.Tag;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

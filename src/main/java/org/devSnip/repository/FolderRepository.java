@@ -1,7 +1,12 @@
 package org.devSnip.repository;
 
-import org.devSnip.entity.Folder;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.devSnip.model.Folder;
 
-public interface FolderRepository extends JpaRepository<Folder,Integer> {
+
+import java.util.List;
+
+public interface FolderRepository {
+    boolean addFolder(Folder folder);
+    boolean deleteFolder(Integer id);
+    List<Folder> viewAll();
 }

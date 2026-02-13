@@ -1,9 +1,7 @@
 package org.devSnip.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.apache.catalina.UserDatabase;
 import org.devSnip.dto.UserDto;
-import org.devSnip.entity.User;
 import org.devSnip.service.UserService;
 import org.springframework.web.bind.annotation.*;
 

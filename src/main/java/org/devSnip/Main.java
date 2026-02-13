@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@EntityScan("org.devSnip.entity")
+@EntityScan("org.devSnip.model")
 @EnableJpaRepositories("org.devSnip.repository")
 public class Main {
     public static void main(String[] args) {

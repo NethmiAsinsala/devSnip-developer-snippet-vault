@@ -1,8 +1,7 @@
 package org.devSnip.service;
 
-import jdk.dynalink.linker.LinkerServices;
 import org.devSnip.dto.UserDto;
-import org.devSnip.entity.User;
+import org.devSnip.model.User;
 
 import java.util.List;
 

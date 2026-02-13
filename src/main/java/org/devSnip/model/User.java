@@ -1,4 +1,4 @@
-package org.devSnip.entity;
+package org.devSnip.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

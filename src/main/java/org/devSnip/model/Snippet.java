@@ -1,4 +1,4 @@
-package org.devSnip.entity;
+package org.devSnip.model;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -36,4 +36,6 @@ public class Snippet {
     private List<Tag> tagList;
 
 
+    @ManyToMany (mappedBy = "snippetList")
+    private List<Folder> folderList;
 }

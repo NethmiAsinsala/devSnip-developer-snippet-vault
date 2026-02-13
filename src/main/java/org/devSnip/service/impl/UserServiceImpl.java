@@ -3,7 +3,7 @@ package org.devSnip.service.impl;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.devSnip.dto.UserDto;
-import org.devSnip.entity.User;
+import org.devSnip.model.User;
 import org.devSnip.exception.ResourceNotFoundException;
 import org.devSnip.repository.UserRepository;
 import org.devSnip.service.UserService;

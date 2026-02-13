@@ -1,7 +1,7 @@
 package org.devSnip.service;
 
 import org.devSnip.dto.TagDto;
-import org.devSnip.entity.Tag;
+import org.devSnip.model.Tag;
 
 import java.util.List;
 

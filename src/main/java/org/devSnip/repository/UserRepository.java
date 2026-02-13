@@ -1,6 +1,6 @@
 package org.devSnip.repository;
 
-import org.devSnip.entity.User;
+import org.devSnip.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
