@@ -5,6 +5,7 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.devSnip.dto.CategoryDto;
 import org.devSnip.entity.Category;
+import org.devSnip.exception.ResourceNotFoundException;
 import org.devSnip.repository.CategoryRepository;
 import org.devSnip.service.CategoryService;
 import org.springframework.stereotype.Service;
@@ -31,7 +32,7 @@ public class CategoryServiceImpl implements CategoryService {
     @Transactional
     public Category updateCategory(Integer id, CategoryDto categoryDto) {
         Category category = categoryRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Category not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Category not found"));
         if (categoryDto.getName()!=null){
             category.setName(categoryDto.getName());
         }
@@ -41,7 +42,7 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public CategoryDto viewCategory(Integer id) {
         Category category = categoryRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Category not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Category not found"));
         CategoryDto categoryDto = mapper.convertValue(category, CategoryDto.class);
         return categoryDto;
     }
