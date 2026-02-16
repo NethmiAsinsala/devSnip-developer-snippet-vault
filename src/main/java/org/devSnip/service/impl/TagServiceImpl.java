@@ -38,9 +38,6 @@ public class TagServiceImpl implements TagService {
 
         List<Snippet> snippetList = new ArrayList<>();
 
-        for (Snippet snippet :){
-
-        }
 
         return tagDtoList;
     }

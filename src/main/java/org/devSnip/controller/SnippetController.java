@@ -16,7 +16,7 @@ public class SnippetController {
     private final SnippetService snippetService;
 
     @PostMapping ("/add")
-    public void addSnippet(SnippetDto snippetDto){
+    public void addSnippet(@RequestBody  SnippetDto snippetDto){
         snippetService.addSnippet(snippetDto);
     }
 
@@ -31,7 +31,7 @@ public class SnippetController {
     }
 
     @PutMapping ("/update/{id}")
-    public void updateSnippet(@PathVariable Integer id, SnippetDto snippetDto ){
+    public void updateSnippet(@PathVariable Integer id, @RequestBody SnippetDto snippetDto ){
         snippetService.updateSnippet(id, snippetDto);
     }
 

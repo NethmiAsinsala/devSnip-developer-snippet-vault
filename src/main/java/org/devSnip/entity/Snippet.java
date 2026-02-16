@@ -35,4 +35,5 @@ public class Snippet {
                 inverseJoinColumns = @JoinColumn (name = "tag_id"))
     private List<Tag> tagList;
 
+
 }

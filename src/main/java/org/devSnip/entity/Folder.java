@@ -9,13 +9,13 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "categories")
-public class Category {
+@Table(name = "folders")
+public class Folder {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "category_id")
-    private Integer category_id;
+    @Column(name = "folder_id")
+    private Integer folderId;
     private String name;
 
 

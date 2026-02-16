@@ -65,12 +65,12 @@ public class SnippetServiceImpl implements SnippetService {
             }
             snippetDtoList.add(snippetDto);
 
-            List<Integer> tagIdList = new ArrayList<>();
+            List<String> tagNameList = new ArrayList<>();
 
             for (Tag tag : snippet.getTagList()){
-                tagIdList.add(tag.getTag_id());
+                tagNameList.add(tag.getName());
             }
-            snippetDto.setTag_id(tagIdList);
+            snippetDto.setTagNameList(tagNameList);
         }
 
         return snippetDtoList;
@@ -93,6 +93,13 @@ public class SnippetServiceImpl implements SnippetService {
             snippetDto.setUser_id(snippet.getUser().getUser_id());
         }
 
+        List<String> tagNameList = new ArrayList<>();
+
+        for (Tag tag : snippet.getTagList()){
+            tagNameList.add(tag.getName());
+        }
+        snippetDto.setTagNameList(tagNameList);
+
         return snippetDto;
     }
 
@@ -105,7 +112,29 @@ public class SnippetServiceImpl implements SnippetService {
         if (snippetDto.getTitle()!=null) snippet.setTitle(snippetDto.getTitle());
         if (snippetDto.getDescription()!=null) snippet.setDescription(snippetDto.getDescription());
         if (snippetDto.getLanguage()!=null) snippet.setLanguage(snippetDto.getLanguage());
+        if (snippetDto.getNewTagName() != null &&
+                !snippetDto.getNewTagName().trim().isEmpty()) {
 
+            if (snippet.getTagList() == null) {
+                snippet.setTagList(new ArrayList<>());
+            }
+
+            String tagName = snippetDto.getNewTagName().trim();
+
+            Tag tag = tagRepository.findByName(tagName)
+                    .orElseGet(() -> {
+                        Tag newTag = new Tag();
+                        newTag.setName(tagName);
+                        return tagRepository.save(newTag);
+                    });
+
+            boolean alreadyExists = snippet.getTagList().stream()
+                    .anyMatch(t -> t.getName().equalsIgnoreCase(tagName));
+
+            if (!alreadyExists) {
+                snippet.getTagList().add(tag);
+            }
+        }
         return snippetRepository.save(snippet);
     }
 
@@ -113,4 +142,5 @@ public class SnippetServiceImpl implements SnippetService {
     public void deleteSnippet(Integer id) {
         snippetRepository.deleteById(id);
     }
+
 }

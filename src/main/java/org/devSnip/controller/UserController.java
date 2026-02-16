@@ -17,7 +17,7 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping ("/add")
-    public void addUser(UserDto userDto){
+    public void addUser(@RequestBody UserDto userDto){
         userService.addUser(userDto);
     }
 
@@ -32,7 +32,7 @@ public class UserController {
     }
 
     @PutMapping ("/update/{id}")
-    public void updateUser(@PathVariable Integer id, UserDto userDto){
+    public void updateUser(@PathVariable Integer id, @RequestBody UserDto userDto){
         userService.updateUser(id, userDto);
     }
 

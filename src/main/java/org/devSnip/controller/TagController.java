@@ -16,7 +16,7 @@ public class TagController {
     private final TagService tagService;
 
     @PostMapping ("/add")
-    public void addTag(TagDto tagDto){
+    public void addTag(@RequestBody TagDto tagDto){
         tagService.addTag(tagDto);
     }
 
@@ -31,7 +31,7 @@ public class TagController {
     }
 
     @PutMapping ("/update/{id}")
-    public void updateTag(@PathVariable Integer id, TagDto tagDto){
+    public void updateTag(@PathVariable Integer id, @RequestBody TagDto tagDto){
         tagService.updateTag(id, tagDto);
     }
 

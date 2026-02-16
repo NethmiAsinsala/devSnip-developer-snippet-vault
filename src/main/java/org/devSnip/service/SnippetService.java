@@ -11,5 +11,6 @@ public interface SnippetService {
     SnippetDto viewSnippetById(Integer id);
     Snippet updateSnippet(Integer id, SnippetDto snippetDto);
     void deleteSnippet(Integer id);
+//    Snippet addTagSnippet(Integer snippetId, String tagName);
 
 }
