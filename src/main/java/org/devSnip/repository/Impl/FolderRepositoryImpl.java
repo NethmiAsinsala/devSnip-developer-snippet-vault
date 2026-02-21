@@ -16,24 +16,24 @@ public class FolderRepositoryImpl implements FolderRepository {
 
     @Override
     public boolean addFolder(Folder folder) {
-        String sql = "INSERT INTO folder VALUES(?,?)";
+        String sql = """
+                        INSERT INTO folders(name) VALUES(?)""";
 
         return jdbcTemplate.update(sql,
-                folder.getFolderId(),
                 folder.getName()
         )>0;
     }
 
     @Override
     public boolean deleteFolder(Integer id) {
-        String sql = "DELETE FROM folder WHERE FolderId =?";
+        String sql = "DELETE FROM folders WHERE FolderId =?";
 
         return jdbcTemplate.update(sql,id)>0;
     }
 
     @Override
     public List<Folder> viewAll() {
-        String sql ="SELECT * FROM folder";
+        String sql ="SELECT * FROM folders";
 
         List<Folder> folderList = jdbcTemplate.query(sql,(rs,rowNum)->{
             Folder folder = new Folder();

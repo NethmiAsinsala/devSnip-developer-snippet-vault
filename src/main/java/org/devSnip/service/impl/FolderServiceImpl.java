@@ -13,7 +13,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class FolderServiceImpl implements FolderService {
 
-    private final ObjectMapper mapper;
     private final FolderRepository folderRepository;
 
 

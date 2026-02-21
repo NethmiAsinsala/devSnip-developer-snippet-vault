@@ -1,16 +1,15 @@
 package org.devSnip.service;
 
-import org.devSnip.dto.SnippetDto;
 import org.devSnip.model.Snippet;
 
 import java.util.List;
 
 public interface SnippetService {
-    void addSnippet(SnippetDto snippetDto);
-    List<SnippetDto> viewAllSnippet ();
-    SnippetDto viewSnippetById(Integer id);
-    Snippet updateSnippet(Integer id, SnippetDto snippetDto);
-    void deleteSnippet(Integer id);
-//    Snippet addTagSnippet(Integer snippetId, String tagName);
+    boolean addSnippet(Snippet snippet);
+    List<Snippet> viewAllSnippet ();
+//    SnippetDto viewSnippetById(Integer id);
+//    Snippet updateSnippet(Integer id, SnippetDto snippetDto);
+    boolean deleteSnippet(Integer id);
+
 
 }

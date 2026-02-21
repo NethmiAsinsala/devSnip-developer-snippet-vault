@@ -15,8 +15,8 @@ public class FolderController {
         private final FolderService folderService;
 
         @PostMapping("/addCategory")
-        public void addFolder(@RequestBody Folder folder){
-            folderService.addFolder(folder);
+        public boolean addFolder(@RequestBody Folder folder){
+            return folderService.addFolder(folder);
         }
 
 //        @PutMapping("/updateCategory/{id}")

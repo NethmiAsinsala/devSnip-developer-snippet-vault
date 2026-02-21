@@ -1,7 +1,8 @@
 package org.devSnip.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.devSnip.dto.TagDto;
+import org.devSnip.model.Folder;
+import org.devSnip.model.Tag;
 import org.devSnip.service.TagService;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,31 +13,23 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping ("api/tags")
 public class TagController {
-
     private final TagService tagService;
 
-    @PostMapping ("/add")
-    public void addTag(@RequestBody TagDto tagDto){
-        tagService.addTag(tagDto);
+    @PostMapping("/add")
+    public  boolean addtag(Tag tag){
+        return tagService.addTag(tag);
     }
 
-    @GetMapping ("/get-all")
-    public List<TagDto> viewAllTags(){
+    @GetMapping("/get-all")
+    public List<Tag> viewAllTag(){
         return tagService.viewAllTags();
     }
 
-    @GetMapping ("/view/{id}")
-    public TagDto viewTagById(@PathVariable Integer id){
-        return tagService.viewTagById(id);
-    }
-
-    @PutMapping ("/update/{id}")
-    public void updateTag(@PathVariable Integer id, @RequestBody TagDto tagDto){
-        tagService.updateTag(id, tagDto);
-    }
-
     @DeleteMapping ("/delete/{id}")
-    public void deleteTag(@PathVariable Integer id){
-        tagService.deleteTag(id);
+    public boolean deleteTag(@PathVariable Integer id){
+        return tagService.deleteTag(id);
     }
+
+
+
 }
