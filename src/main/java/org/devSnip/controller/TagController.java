@@ -25,6 +25,11 @@ public class TagController {
         return tagService.viewAllTags();
     }
 
+    @PatchMapping ("/update/{id}")
+    public void updateTahg(@PathVariable Integer id , Tag tag){
+        tagService.updateTag(id, tag);
+    }
+
     @DeleteMapping ("/delete/{id}")
     public boolean deleteTag(@PathVariable Integer id){
         return tagService.deleteTag(id);

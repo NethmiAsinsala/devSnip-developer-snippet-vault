@@ -25,6 +25,11 @@ public class TagServiceImpl implements TagService {
     }
 
     @Override
+    public boolean updateTag(Integer id, Tag tag) {
+        return tagRepository.updateTag(id, tag);
+    }
+
+    @Override
     public boolean deleteTag(Integer id) {
         return tagRepository.deleteTag(id);
     }

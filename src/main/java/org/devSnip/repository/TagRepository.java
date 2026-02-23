@@ -10,5 +10,6 @@ import java.util.Optional;
 public interface TagRepository {
     boolean addTag(Tag tag);
     boolean deleteTag(Integer id);
+    boolean updateTag(Integer id, Tag tag);
     List<Tag> viewAllTags();
 }

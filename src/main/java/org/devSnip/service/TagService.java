@@ -7,7 +7,6 @@ import java.util.List;
 public interface TagService {
     boolean addTag(Tag tag);
     List<Tag> viewAllTags();
-//    TagDto viewTagById(Integer id);
-//    Tag updateTag(Integer id, TagDto tagDto);
+    boolean updateTag(Integer id, Tag tag);
     boolean deleteTag(Integer id);
 }
