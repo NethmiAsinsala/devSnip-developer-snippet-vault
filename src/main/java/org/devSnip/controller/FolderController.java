@@ -14,20 +14,15 @@ import java.util.List;
 public class FolderController {
         private final FolderService folderService;
 
-        @PostMapping("/addCategory")
+        @PostMapping("/add")
         public boolean addFolder(@RequestBody Folder folder){
             return folderService.addFolder(folder);
         }
 
-//        @PutMapping("/updateCategory/{id}")
-//        public void updateCategory(@PathVariable Integer id , @RequestBody FolderDto folderDto){
-//            folderService.updateFolder(id, folderDto);
-//        }
-//
-//        @GetMapping ("/{id}")
-//        public FolderDto viewCategory(@PathVariable Integer id){
-//            return folderService.viewFolder(id);
-//        }
+        @PatchMapping("/updateFolder/{id}")
+        public void updateCategory(@PathVariable Integer id , @RequestBody Folder folder){
+            folderService.updateFolder(id, folder);
+        }
 
         @GetMapping("/get-all")
         public List<Folder> viewAllFolder(){

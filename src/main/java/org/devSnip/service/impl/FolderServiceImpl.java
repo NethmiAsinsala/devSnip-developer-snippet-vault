@@ -22,6 +22,11 @@ public class FolderServiceImpl implements FolderService {
     }
 
     @Override
+    public boolean updateFolder(Integer id, Folder folder) {
+        return folderRepository.updateFolder(id,folder) ;
+    }
+
+    @Override
     public List<Folder> viewAllFolder() {
         return folderRepository.viewAll();
     }
