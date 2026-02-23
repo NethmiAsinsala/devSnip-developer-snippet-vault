@@ -27,6 +27,11 @@ public class SnippetServiceImpl implements SnippetService {
     }
 
     @Override
+    public void updateSnippet(Integer id, Snippet snippet) {
+         snippetRepository.updateSnippet(id, snippet);
+    }
+
+    @Override
     public boolean deleteSnippet(Integer id) {
         return snippetRepository.deleteSnippet(id);
     }

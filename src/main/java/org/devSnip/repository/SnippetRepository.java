@@ -11,5 +11,6 @@ import java.util.List;
 public interface SnippetRepository {
     boolean addSnippet(Snippet snippet);
     boolean deleteSnippet(Integer id);
+    boolean updateSnippet(Integer id, Snippet snippet);
     List<Snippet> viewAllSnippet();
 }

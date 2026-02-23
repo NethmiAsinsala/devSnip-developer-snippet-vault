@@ -25,15 +25,10 @@ public class SnippetController {
         return snippetService.viewAllSnippet();
     }
 
-//    @GetMapping ("/view/{id}")
-//    public SnippetDto viewSnippetById(@PathVariable Integer id){
-//        return snippetService.viewSnippetById(id);
-//    }
-//
-//    @PutMapping ("/update/{id}")
-//    public void updateSnippet(@PathVariable Integer id, @RequestBody SnippetDto snippetDto ){
-//        snippetService.updateSnippet(id, snippetDto);
-//    }
+    @PatchMapping ("/update/{id}")
+    public void updateSnippet(@PathVariable Integer id, @RequestBody Snippet snippet ){
+        snippetService.updateSnippet(id,snippet);
+    }
 
     @DeleteMapping ("/delete/{id}")
     public boolean deleteSnippet( Integer id){

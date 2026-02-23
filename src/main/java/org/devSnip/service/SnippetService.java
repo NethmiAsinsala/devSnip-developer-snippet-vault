@@ -7,8 +7,7 @@ import java.util.List;
 public interface SnippetService {
     boolean addSnippet(Snippet snippet);
     List<Snippet> viewAllSnippet ();
-//    SnippetDto viewSnippetById(Integer id);
-//    Snippet updateSnippet(Integer id, SnippetDto snippetDto);
+    void updateSnippet(Integer id, Snippet snippet);
     boolean deleteSnippet(Integer id);
 
 
