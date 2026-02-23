@@ -29,6 +29,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public boolean updateUser(Integer id, User user) {
+        return userRepository.updateUser(id, user);
+    }
+
+    @Override
     public boolean deleteUser(Integer id) {
         return userRepository.deleteUser(id);
     }

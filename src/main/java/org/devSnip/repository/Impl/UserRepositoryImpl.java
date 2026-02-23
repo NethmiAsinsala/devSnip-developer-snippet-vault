@@ -7,6 +7,7 @@ import org.devSnip.util.Role;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -34,6 +35,42 @@ public class UserRepositoryImpl implements UserRepository {
         String sql = "DELETE FROM users WHERE id =?";
 
         return jdbcTemplate.update(sql,id)>0;
+    }
+
+    @Override
+    public boolean updateUser(Integer id, User user) {
+        StringBuilder sql = new StringBuilder("UPDATE users SET ");
+        List<Object> params = new ArrayList<>();
+        boolean hasUpdate = false;
+
+        if(user.getName()!=null){
+            sql.append("name = ?, ");
+            params.add(user.getName());
+            hasUpdate = true;
+        }
+        if(user.getEmail()!=null){
+            sql.append("email = ?, ");
+            params.add(user.getEmail());
+            hasUpdate = true;
+        }
+        if(user.getPassword()!=null){
+            sql.append("password = ?, ");
+            params.add(user.getPassword());
+            hasUpdate = true;
+        }
+        if(user.getRole()!=null){
+            sql.append("language = ?, ");
+            params.add(user.getRole());
+            hasUpdate = true;
+        }
+
+        if (!hasUpdate) return false;
+
+        sql.setLength(sql.length()-2);
+        sql.append(" WHERE user_id = ?");
+        params.add(id);
+
+        return jdbcTemplate.update(sql.toString(), params.toArray())>0;
     }
 
     @Override

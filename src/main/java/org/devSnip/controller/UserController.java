@@ -25,15 +25,11 @@ public class UserController {
         return userService.viewAllUser();
     }
 
-//    @GetMapping ("/view/{id}")
-//    public UserDto viewUserById(@PathVariable Integer id){
-//        return userService.viewUserById(id);
-//    }
-//
-//    @PutMapping ("/update/{id}")
-//    public void updateUser(@PathVariable Integer id, @RequestBody UserDto userDto){
-//        userService.updateUser(id, userDto);
-//    }
+
+    @PatchMapping ("/update/{id}")
+    public void updateUser(@PathVariable Integer id, @RequestBody User user){
+        userService.updateUser(id, user);
+    }
 
     @DeleteMapping ("/delete/{id}")
     public boolean deleteUser( Integer id){

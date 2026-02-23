@@ -8,7 +8,6 @@ import java.util.List;
 public interface UserService {
     boolean addUser(User user);
     List<User> viewAllUser();
-//    UserDto viewUserById(Integer id);
-//    User updateUser (Integer id , UserDto userDto);
+    boolean updateUser (Integer id , User user);
     boolean deleteUser (Integer id);
 }

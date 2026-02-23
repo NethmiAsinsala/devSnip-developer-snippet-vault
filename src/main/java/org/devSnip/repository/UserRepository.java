@@ -11,5 +11,6 @@ import java.util.List;
 public interface UserRepository {
     boolean addUser(User user);
     boolean deleteUser(Integer id);
+    boolean updateUser(Integer id, User user);
     List<User> viewAllUsers();
 }
