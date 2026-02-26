@@ -19,13 +19,14 @@ public class SnippetRepositoryImpl implements SnippetRepository {
     @Override
     public boolean addSnippet(Snippet snippet) {
         String sql = """
-                        INSERT INTO snippets (code_content,description,language,title) VALUES(?,?,?,?)""";
+                        INSERT INTO snippets (code_content,description,language,title,folder_id) VALUES(?,?,?,?,?)""";
 
         return jdbcTemplate.update(sql,
                 snippet.getCode_content(),
                 snippet.getDescription(),
                 snippet.getLanguage(),
-                snippet.getTitle()
+                snippet.getTitle(),
+                snippet.getFolderId()
 
         )>0;
     }
@@ -63,6 +64,11 @@ public class SnippetRepositoryImpl implements SnippetRepository {
             params.add(snippet.getLanguage());
             hasUpdate = true;
         }
+        if(snippet.getFolderId()!=null){
+            sql.append("folder_id = ?, ");
+            params.add(snippet.getFolderId());
+            hasUpdate = true;
+        }
 
         if (!hasUpdate) return false;
 
@@ -84,6 +90,7 @@ public class SnippetRepositoryImpl implements SnippetRepository {
             snippet.setDescription(rs.getString("description"));
             snippet.setLanguage(rs.getString("language"));
             snippet.setTitle(rs.getString("title"));
+            snippet.setFolderId(rs.getInt("folder_id"));
 
             return snippet;
         });
@@ -102,7 +109,7 @@ public class SnippetRepositoryImpl implements SnippetRepository {
                 snippet.setCode_content(rs.getString("code_content"));
                 snippet.setDescription(rs.getString("description"));
                 snippet.setLanguage(rs.getString("language"));
-                snippet.setFoldeId(rs.getInt("folder_id"));
+                snippet.setFolderId((rs.getInt("folder_id")));
                 return snippet;
             });
         }
