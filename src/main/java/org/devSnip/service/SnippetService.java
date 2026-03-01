@@ -9,6 +9,7 @@ public interface SnippetService {
     List<Snippet> viewAllSnippet ();
     void updateSnippet(Integer id, Snippet snippet);
     boolean deleteSnippet(Integer id);
+    List<Snippet> getByFolder(Integer id);
 
 
 }

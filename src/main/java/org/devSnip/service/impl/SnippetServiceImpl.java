@@ -35,4 +35,9 @@ public class SnippetServiceImpl implements SnippetService {
     public boolean deleteSnippet(Integer id) {
         return snippetRepository.deleteSnippet(id);
     }
+
+    @Override
+    public List<Snippet> getByFolder(Integer id) {
+        return  snippetRepository.getByFolder(id);
+    }
 }

@@ -12,4 +12,6 @@ public class Snippet {
     private String code_content;
     private String language;
 
+    private Integer foldeId;
+
 }

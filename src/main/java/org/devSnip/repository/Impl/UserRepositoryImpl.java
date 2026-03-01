@@ -90,4 +90,23 @@ public class UserRepositoryImpl implements UserRepository {
         });
         return userList;
     }
+
+    public User findByEmail(String email) {
+
+        String sql = "SELECT * FROM users WHERE email = ?";
+
+        List<User> list = jdbcTemplate.query(sql, (rs, rowNum) -> {
+
+            User user = new User();
+            user.setId(rs.getInt("id"));
+            user.setName(rs.getString("name"));
+            user.setEmail(rs.getString("email"));
+            user.setPassword(rs.getString("password"));
+
+            return user;
+
+        }, email);
+
+        return list.isEmpty() ? null : list.get(0);
+    }
 }

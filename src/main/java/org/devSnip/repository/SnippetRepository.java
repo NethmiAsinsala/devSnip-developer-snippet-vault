@@ -13,4 +13,5 @@ public interface SnippetRepository {
     boolean deleteSnippet(Integer id);
     boolean updateSnippet(Integer id, Snippet snippet);
     List<Snippet> viewAllSnippet();
+    List<Snippet> getByFolder(Integer id);
 }

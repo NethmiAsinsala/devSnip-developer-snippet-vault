@@ -89,4 +89,22 @@ public class SnippetRepositoryImpl implements SnippetRepository {
         });
         return snippetList;
     }
+
+    @Override
+        public List<Snippet> getByFolder(Integer folderId) {
+
+            String sql = "SELECT * FROM snippets WHERE folder_id = ?";
+
+            return jdbcTemplate.query(sql, new Object[]{folderId}, (rs, rowNum) -> {
+                Snippet snippet = new Snippet();
+                snippet.setId(rs.getInt("id"));
+                snippet.setTitle(rs.getString("title"));
+                snippet.setCode_content(rs.getString("code_content"));
+                snippet.setDescription(rs.getString("description"));
+                snippet.setLanguage(rs.getString("language"));
+                snippet.setFoldeId(rs.getInt("folder_id"));
+                return snippet;
+            });
+        }
+
 }

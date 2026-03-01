@@ -34,4 +34,9 @@ public class SnippetController {
     public boolean deleteSnippet( Integer id){
         return snippetService.deleteSnippet(id);
     }
+
+    @GetMapping ("/get-by-folder/{id}")
+    public  List<Snippet> getByFolder(Integer id){
+        return snippetService.getByFolder(id);
+    }
 }

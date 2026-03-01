@@ -10,4 +10,5 @@ public interface UserService {
     List<User> viewAllUser();
     boolean updateUser (Integer id , User user);
     boolean deleteUser (Integer id);
+    boolean validateUser(User user);
 }

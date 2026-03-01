@@ -13,4 +13,5 @@ public interface UserRepository {
     boolean deleteUser(Integer id);
     boolean updateUser(Integer id, User user);
     List<User> viewAllUsers();
+    User findByEmail(String email);
 }

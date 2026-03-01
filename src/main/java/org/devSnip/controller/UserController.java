@@ -32,7 +32,12 @@ public class UserController {
     }
 
     @DeleteMapping ("/delete/{id}")
-    public boolean deleteUser( Integer id){
+    public boolean deleteUser( @PathVariable Integer id){
         return userService.deleteUser(id);
+    }
+
+    @PostMapping("/login")
+    public boolean login(@RequestBody User user) {
+        return userService.validateUser(user);
     }
 }
