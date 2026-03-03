@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin
+@CrossOrigin (origins = "http://localhost:4200")
 @RequiredArgsConstructor
 @RequestMapping ("api/snippets")
 public class SnippetController {
@@ -36,7 +36,7 @@ public class SnippetController {
     }
 
     @GetMapping ("/get-by-folder/{id}")
-    public  List<Snippet> getByFolder(Integer id){
+    public  List<Snippet> getByFolder(@PathVariable Integer id){
         return snippetService.getByFolder(id);
     }
 }

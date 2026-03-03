@@ -28,6 +28,7 @@ public class SnippetRepositoryImpl implements SnippetRepository {
                 snippet.getTitle(),
                 snippet.getFolderId()
 
+
         )>0;
     }
 
@@ -81,7 +82,7 @@ public class SnippetRepositoryImpl implements SnippetRepository {
 
     @Override
     public List<Snippet> viewAllSnippet() {
-        String sql ="SELECT * FROM snippets";
+        String sql ="SELECT snippets.*, tags.name AS tag_name FROM snippets LEFT JOIN tags ON snippets.tag_id = tags.tag_id";
 
         List<Snippet> snippetList = jdbcTemplate.query(sql,(rs, rowNum)->{
             Snippet snippet = new Snippet();
@@ -91,6 +92,7 @@ public class SnippetRepositoryImpl implements SnippetRepository {
             snippet.setLanguage(rs.getString("language"));
             snippet.setTitle(rs.getString("title"));
             snippet.setFolderId(rs.getInt("folder_id"));
+            snippet.setTagName(rs.getString("tag_name"));
 
             return snippet;
         });
@@ -100,7 +102,7 @@ public class SnippetRepositoryImpl implements SnippetRepository {
     @Override
         public List<Snippet> getByFolder(Integer folderId) {
 
-            String sql = "SELECT * FROM snippets WHERE folder_id = ?";
+            String sql = "SELECT snippets.*, tags.name AS tag_name FROM snippets  LEFT JOIN tags  ON snippets.tag_id = tags.tag_id WHERE snippets.folder_id = ?";
 
             return jdbcTemplate.query(sql, new Object[]{folderId}, (rs, rowNum) -> {
                 Snippet snippet = new Snippet();
@@ -110,6 +112,7 @@ public class SnippetRepositoryImpl implements SnippetRepository {
                 snippet.setDescription(rs.getString("description"));
                 snippet.setLanguage(rs.getString("language"));
                 snippet.setFolderId((rs.getInt("folder_id")));
+                snippet.setTagName(rs.getString("tag_name"));
                 return snippet;
             });
         }

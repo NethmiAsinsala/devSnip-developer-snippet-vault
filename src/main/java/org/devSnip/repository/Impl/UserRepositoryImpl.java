@@ -98,7 +98,7 @@ public class UserRepositoryImpl implements UserRepository {
         List<User> list = jdbcTemplate.query(sql, (rs, rowNum) -> {
 
             User user = new User();
-            user.setId(rs.getInt("id"));
+            user.setId(rs.getInt("user_id"));
             user.setName(rs.getString("name"));
             user.setEmail(rs.getString("email"));
             user.setPassword(rs.getString("password"));

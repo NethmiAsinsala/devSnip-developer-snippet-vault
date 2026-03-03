@@ -13,5 +13,6 @@ public class Snippet {
     private String language;
 
     private Integer folderId;
+    private String tagName;
 
 }
